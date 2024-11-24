@@ -2,8 +2,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\documentclass[handout]{beamer}\mode<handout>{\usetheme{default}}
 %
-\documentclass[presentation]{beamer}\mode<presentation>{\usetheme{blackAMSBolognaFC}}
-%\documentclass[handout]{beamer}\mode<handout>{\usetheme{AMSBolognaFC}}
+%\documentclass[presentation]{beamer}\mode<presentation>{\usetheme{blackAMSBolognaFC}}
+\documentclass[handout]{beamer}\mode<handout>{\usetheme{AMSBolognaFC}}
 % \setbeamertemplate{bibliography item}{\insertbiblabel}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[english]{babel}
@@ -11,47 +11,61 @@
 %
 \usepackage{talk-2024-aixia-rag}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title[Short Title]{
+\title[RAG on LLMs for Medical Chatbot]{%
     % same title of the presented paper
-    Long title line 2
-    \\
-    Line 2
+    \small{
+        \large{
+            Applying Retrieval-Augmented Generation on Open LLMs
+            \\
+            for a Medical Chatbot Supporting Hypertensive Patients
+        }
+    }
 }
 %
 % \subtitle{Extended Abstract}
 %
 % same authors order of the presented paper
-\author[Alice et al.]{
-	\emph{Alice}$^{*}$ % empth the presenting author
+\author[Aguzzi et al.]{
+	Gianluca Aguzzi$^{*}$ % empth the presenting author
 	\and 
-	Bob$^{\dagger}$
-	\\
-	Carl$^{\dagger}$
+	Matteo Magnini$^{*}$
 	\and
-	Dan$^{*}$
+	Giuseppe Pio Salcuni$^{*}$
+	\\
+	Stefano Ferretti$^{*}$
+    \and
+    \emph{Sara Montagna$^{\dagger}$}
 }
 %
-\institute[UniBo, Uni*]{
-    $^{*}$Dipartimento di Informatica -- Scienza e Ingegneria (DISI)
+\institute[UniBo, UniUrb]{
+    $^{*}$Department of Computer Science and Engineering (DISI)
     \\
-    \textsc{Alma Mater Studiorum} -- Università di Bologna
+    \textsc{Alma Mater Studiorum} -- University of Bologna
     \\
     \texttt{
-        \{\emph{alice}, bob\}@unibo.it % emph the presenting author's email
+        \{gianluca.aguzzi, matteo.magnini, stefano.ferretti\}@unibo.it
+    }
+    \\
+    \texttt{
+        giuseppepio.salcuni@studio.unibo.it
     }
     \vspace{.3cm}
     \\
-    $^{\dagger}$University of Whatever
+    $^{\dagger}$Department of Pure and Applied Sciences (DiSPeA)
     \\
-    \texttt{\{carl, dan\}@whatever.org}
+    University of Urbino
+    \\
+    \texttt{\emph{sara.montagna}@uniurb.it}
 }
 %
-\date[ACRONYM, YEAR]{
-	International Conference/Workshop on
-	\\
-	Interesting things and their applications (ACRONYM)
-	\\
-	Presentation day, YEAR, LOCATION
+\date[HC@AIxIA, 2024]{
+    \small{
+        \small{
+            3rd AIxIA Workshop on Artificial Intelligence For Healthcare (HC@AIxIA)
+            \\
+            27-28 November 2024, Bolzano, Italy
+        }
+    }
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtBeginSection[]
