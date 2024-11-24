@@ -1,0 +1,258 @@
+% !TeX spellcheck = en_GB
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[handout]{beamer}\mode<handout>{\usetheme{default}}
+%
+\documentclass[presentation]{beamer}\mode<presentation>{\usetheme{blackAMSBolognaFC}}
+%\documentclass[handout]{beamer}\mode<handout>{\usetheme{AMSBolognaFC}}
+% \setbeamertemplate{bibliography item}{\insertbiblabel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+%
+\usepackage{abcd-venue-20XX-talk}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Short Title]{
+    % same title of the presented paper
+    Long title line 2
+    \\
+    Line 2
+}
+%
+% \subtitle{Extended Abstract}
+%
+% same authors order of the presented paper
+\author[Alice et al.]{
+	\emph{Alice}$^{*}$ % empth the presenting author
+	\and 
+	Bob$^{\dagger}$
+	\\
+	Carl$^{\dagger}$
+	\and
+	Dan$^{*}$
+}
+%
+\institute[UniBo, Uni*]{
+    $^{*}$Dipartimento di Informatica -- Scienza e Ingegneria (DISI)
+    \\
+    \textsc{Alma Mater Studiorum} -- Università di Bologna
+    \\
+    \texttt{
+        \{\emph{alice}, bob\}@unibo.it % emph the presenting author's email
+    }
+    \vspace{.3cm}
+    \\
+    $^{\dagger}$University of Whatever
+    \\
+    \texttt{\{carl, dan\}@whatever.org}
+}
+%
+\date[ACRONYM, YEAR]{
+	International Conference/Workshop on
+	\\
+	Interesting things and their applications (ACRONYM)
+	\\
+	Presentation day, YEAR, LOCATION
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginSection[]
+{
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}<beamer>[c,noframenumbering]
+\frametitle{Next in Line\ldots}
+\tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide]
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+}
+\AtBeginSubsection[]
+{
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}<beamer>[shrink,noframenumbering]
+    \frametitle{Focus on\ldots}
+	\mbox{~}
+	\tableofcontents[currentsubsection,sectionstyle=shaded,subsectionstyle=show/shaded]
+	\mbox{~}
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\\\\\\\\\\\\\\\\\\\\\
+\frame{\titlepage}
+%\\\\\\\\\\\\\\\\\\\\\
+
+%===============================================================================
+\section{Motivation \& Context}
+%===============================================================================
+
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}[c]{Context}
+    
+    Provide some context (max 4-5 items):
+    %
+    \vfill
+    %
+    \begin{itemize}
+        \item fact 1
+        %
+        \begin{itemize}
+            \item note
+        \end{itemize}
+        
+        \vfill
+        
+        \item[$\Rightarrow$] fact 2 implied by fact 1
+        %
+        \begin{itemize}
+            \item[!] important \alert{notice}
+        \end{itemize}
+        
+        \vfill
+        
+        \item fact 3
+        %
+        \begin{itemize}
+            \item note
+        \end{itemize}
+        
+        \vfill
+        
+        \item fact 4
+        
+    \end{itemize}
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}[c]{Motivation}
+    Enumerate motivations for this work:
+    %
+    \vfill
+    %
+    \begin{itemize}
+        \item motivation 1
+        %
+        \begin{itemize}
+            \item[e.g.] example
+        \end{itemize}
+        
+        \vfill
+        
+        \item motivation 2
+        %
+        \begin{itemize}
+            \item note
+        \end{itemize}
+        
+        \vfill
+        
+        \item motivation 3 with citations \ccite{crawford2016artificial,RibeiroSG16,wexler2017computer}
+        
+        \vfill
+        
+        \item etc
+        
+    \end{itemize}
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}{Some state of the art (optional)}
+
+    Provide relevant information about the state of the art / related works here, possibly with references
+
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}{Contribution of the paper}
+
+\begin{block}{Explicitly state the contributions of the paper}
+    \begin{itemize}
+        \item contribution 1
+        \item contribution 2
+    \end{itemize}
+\end{block}
+
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+%===============================================================================
+\section{Theory / modelling / design}
+%===============================================================================
+
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}%[allowframebreaks]
+\frametitle{Theory / modelling / design}
+
+    Provide 2-3 slides discussing the Theory / modelling / design
+
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+\section{Case study / Experiments / Results}
+
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}%[allowframebreaks]
+\frametitle{Case study / Experiments / Results}
+
+    Provide 2-3 slides discussing the Case study / Experiments / Results of the paper
+
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+\section{Conclusions \& future works}
+
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}%[allowframebreaks]
+\frametitle{Conclusions \& future works}
+
+\begin{block}{Summing up}
+    Summarise the most relevant contributions of this study:
+    %
+    \begin{itemize}
+        \item conclusion 1
+        \item conclusion 2
+        \item conclusion 3
+    \end{itemize}
+\end{block}
+
+\begin{exampleblock}{Future works}
+    Sketch some future research directions
+    %
+    \begin{itemize}
+        \item future work 1
+        \item future work 2
+    \end{itemize}
+\end{exampleblock}
+
+(may be split into 2 slides)
+
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+%===============================================================================
+\section*{}
+%===============================================================================
+\frame{\titlepage}
+
+%===============================================================================
+\section*{\bibname}
+%===============================================================================
+
+\setbeamertemplate{page number in head/foot}{}
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}[t,allowframebreaks,noframenumbering]\frametitle{\refname}
+% \begin{frame}[c]\frametitle{\refname}
+	\footnotesize
+%	\scriptsize
+    \bibliographystyle{apalike-AMS}
+    % \bibliographystyle{plain}
+	\bibliography{abcd-venue-20XX-talk}
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

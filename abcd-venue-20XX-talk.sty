@@ -1,0 +1,72 @@
+\usepackage{wasysym}
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%% Names
+\newcommand{\acl}{$\mathcal{ACL}$}
+\newcommand{\acllong}{$\mathcal{A}$gent $\mathcal{C}$ommunication $\mathcal{L}$anguage}
+\newcommand{\aea}{{A\&A}}
+\newcommand{\aearespect}{\aea{} \respect{}}
+\newcommand{\aurora}{{Aurora}}
+\newcommand{\cartago}{{\sf{{CA}rt{A}g{O}}}}
+\newcommand{\cofields}{{Co-fields}}
+\newcommand{\corba}{{CORBA}}
+\newcommand{\fipa}{{\sf FIPA}}
+\newcommand{\geolinda}{{\sc GeoLinda}}
+\newcommand{\iot}{{I}o{T}}
+\newcommand{\jade}{{\sc Jade}}
+\newcommand{\jadelong}{{\sc J}ava {\sc A}gent {\sc DE}velopment Framework}
+\newcommand{\jason}{{\bf\it {J}ason}}
+\newcommand{\lime}{{\sc{{L}ime}}}
+\newcommand{\linda}{{\sc{{L}inda}}}
+\newcommand{\lpaas}{{LPaaS}}
+\newcommand{\oma}{{OMA}}
+\newcommand{\omalong}{{O}bject {M}anagement {A}rchitecture}
+\newcommand{\omg}{{OMG}}
+\newcommand{\omglong}{{O}bject {M}anagement {G}roup}
+\newcommand{\prolog}{{P}rolog}
+\newcommand{\respect}{{\sf{{R}e{S}pec{T}}}}
+\newcommand{\respectlong}{\textsf{R}eaction \textsf{Spec}ification \textsf{T}uples}
+\newcommand{\respectfull}{\respectlong{} (\respect{})}
+\newcommand{\respecttitle}{\textbf{R}eaction \textbf{Spec}ification \textbf{T}uples}
+\newcommand{\rest}{{ReST}}
+\newcommand{\sapere}{{SAPERE}}
+\newcommand{\sicstus}{{SICStus Prolog}}
+\newcommand{\spatialtuples}{{\sf {S}patial {T}uples}}
+\newcommand{\spatialrespect}{{S}patial {\sf {R}e{S}pec{T}}}
+\newcommand{\tforj}{\tucson{}$4$\jade{}}
+\newcommand{\tforjn}{\tucson{}$4$\jason{}}
+\newcommand{\tota}{{TOTA}}
+\newcommand{\tucson}{{\sf{T}u{CS}o{N}}}
+\newcommand{\tucsonlong}{\textsf{Tu}ple \textsf{C}entres \textsf{S}pread \textsf{o}ver the \textsf{N}etwork}
+\newcommand{\tucsonfull}{\tucsonlong{} (\tucson{})}
+\newcommand{\tucsontitle}{\textbf{Tu}ple \textbf{C}entres \textbf{S}pread \textbf{o}ver the \textbf{N}etwork}
+\newcommand{\tuprolog}{{\textsf{tu}\textrm{{P}rolog}}}
+% Code
+\newcommand{\NTSym}[1]{\left\langle\textit{#1\/}\right\rangle}
+\newcommand{\guard}[2]{\mathit{Guard}(#1,#2)}
+\newcommand{\guardp}[2]{\guard{#1}{\mathtt{#2}}}
+\newcommand{\evaltrans}{\longrightarrow_e}
+\newcommand{\res}[6]{\left\langle#1,#2,#3,#4,#5\right\rangle_{#6}}
+\newcommand{\codeterm}[1]{\texttt{#1}}
+\newcommand{\codevar}[1]{\texttt{\textit{#1}}}
+\newcommand{\cterm}[1]{\texttt{\small{#1}\normalsize}}
+\newcommand{\cterms}[1]{\texttt{\footnotesize{#1}\normalsize}}
+\newcommand{\ctermss}[1]{\texttt{\scriptsize{#1}\normalsize}}
+\newcommand{\cvar}[1]{\cterm{\textit{#1}}}
+\newcommand{\cvars}[1]{\cterms{\textit{#1}}}
+\newcommand{\cvarss}[1]{\ctermss{\textit{#1}}}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+% Document Metadata
+\newcommand{\setversion}[2]%
+{\ifthenelse{\equal{#1}{tucson}}{\newcommand\tucsonversion{#2}}
+{\ifthenelse{\equal{#1}{guide}}{\newcommand\guideversion{#2}}
+{}}}
+% New commands
+
+\newcommand{\hint}[1]{{\tiny\textcolor{gray}{#1}}}

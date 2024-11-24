@@ -1,0 +1,46 @@
+name: compile
+on:
+  push:
+    branches:
+      - main
+      - master
+env:
+  LATEX_ROOT: abcd-venue-20XX-talk
+jobs:
+  compile:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build latex
+        uses: xu-cheng/latex-action@3.1.0
+        with:
+          root_file: ${{ env.LATEX_ROOT }}.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape
+          
+      - name: Get Version
+        id: get-version
+        run: echo "version=$(date +'%Y.%m.%d+%H-%M-%S')" >> $GITHUB_OUTPUT
+        
+      - name: Create Release
+        id: create-release
+        uses: actions/create-release@v1.1.4 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get-version.outputs.version }}
+          
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./${{ env.LATEX_ROOT }}.pdf
+          asset_name: ${{ steps.get-version.outputs.version }}.pdf
+          asset_content_type: application/pdf

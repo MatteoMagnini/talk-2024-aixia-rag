@@ -1,0 +1,107 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright 2023-2024 by Matteo Magnini <matteo.magnini@unibo.it>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% name
+\newcommand{\stylename}{blackAMSBolognaFC Beamer style}
+% version
+\newcommand{\stylemajor}{1}
+\newcommand{\styleminor}{5}
+\newcommand{\stylepatch}{20230821}
+\newcommand{\styleversion}{\stylemajor.\styleminor.\stylepatch}
+% typeout
+\typeout{}
+\typeout{\stylename-\styleversion}
+% options
+\newif\if@doApice
+\@doApicefalse
+\DeclareOption{apice}{\@doApicetrue}
+\ProcessOptions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation>
+%
+% APICe BibTeX field display enabled
+\if@doApice
+\newcommand{\apicepar}[1]{{\textcolor{bolognafcpayne!90!white}{\tiny\href{https://apice.unibo.it/xwiki/bin/view/Publications/#1}{\textsf{\it(APICe)}}}}}
+\else
+\newcommand{\apicepar}[1]{}
+\fi
+%
+\setbeamertemplate{navigation symbols}{}
+%
+\useoutertheme{infolines}
+\useinnertheme[shadow=false]{rounded}
+%%% TO UNCOMMENT FOR LOCAL DIR
+\usecolortheme{blackbolognafc}
+%% Alma Logo
+\pgfdeclareimage[height=.97\paperheight]{bg}{almacesena-black-background}
+%\pgfdeclareimage[width=\paperwidth]{bg}{img/almacesena-background}
+\setbeamertemplate{background}{\pgfuseimage{bg}}
+% text
+\setbeamercolor{normal text}{fg=bolognafcwhite}
+\setbeamercolor{alerted text}{fg=bolognafcsunglow}
+\setbeamercolor{quote}{fg=bolognafctea}
+% bullets
+\setbeamercolor*{item}{fg=bolognafcsunglow,bg=black}
+\setbeamercolor*{itemize items}{fg=bolognafcsunglow,bg=black}
+\setbeamercolor*{itemize subitem}{fg=bolognafcsunglow,bg=black}
+% front page
+\setbeamercolor{title}{fg=bolognafcblack,bg=bolognafcsunglow}
+\setbeamercolor{subtitle}{fg=bolognafcpayne!75!bolognafctea}
+\setbeamercolor{author}{fg=bolognafcpayne!75!bolognafctea}
+\setbeamercolor{institute}{fg=bolognafcpayne!75!bolognafctea}
+\setbeamercolor{date}{fg=bolognafcpayne!75!bolognafctea}
+% block header
+\setbeamercolor{block title}{use=structure,fg=bolognafcblack,bg=bolognafctea}
+\setbeamercolor{block title alerted}{use=alerted text,fg=bolognafcwhite,bg=bolognafcpayne}
+\setbeamercolor{block title example}{use=example text,fg=bolognafcwhite,bg=bolognafcpayne}
+% block body
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=bolognafcpayne}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=bolognafctea,fg=bolognafcblack}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=bolognafctea,fg=bolognafcblack}
+% table of content
+\setbeamercolor{section in toc}{fg=bolognafcwhite}
+\setbeamercolor{section in toc shaded}{fg=black}
+\setbeamertemplate{section in toc shaded}[default][70]
+\setbeamercolor{subsection in toc}{fg=bolognafcwhite}
+\setbeamercolor{subsection in toc shaded}{fg=black}
+\setbeamertemplate{subsection in toc shaded}[default][70]
+% footnote
+\setbeamercolor{footnote mark}{fg=bolognafcpayne}
+\setbeamercolor{footnote}{fg=bolognafcpayne}
+% biblio
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamercolor{bibliography entry author}{fg=bolognafcpayne}
+\setbeamercolor{bibliography entry title}{fg=bolognafcwhite}
+\setbeamercolor{bibliography entry location}{fg=bolognafcpayne}
+% Invisible
+\setbeamercolor{bibliography entry note}{fg=black}
+% abstract
+\setbeamercolor*{abstract title}{fg=bolognafctea}
+\setbeamerfont*{abstract title}{family=\sffamily}
+\setbeamercolor*{abstract}{fg=purple!50!white}
+\setbeamerfont*{abstract}{family=\rmfamily,size=\small}
+% Citation
+\newcommand{\ccite}[1]{{\textcolor{bolognafctea}{\textsuperscript{\tiny\cite{#1}}}}}
+\newcommand{\cccite}[1]{{\textcolor{bolognafctea}{\textsuperscript{\tiny\cite{#1}}}}}
+% URL
+\newcommand{\uurl}[1]{{\textcolor{bolognafcsunglow!50!white}{\scriptsize\url{#1}}}}
+\newcommand{\uuurl}[1]{{\textcolor{bolognafcsunglow!90!white}{\tiny\url{#1}}}}
+% DOI
+\newcommand{\ddoi}[1]{{\textcolor{bolognafcsunglow!50!white}{\scriptsize\href{http://dx.doi.org/#1}{DOI:#1}}}}
+\newcommand{\dddoi}[1]{{\textcolor{bolognafcsunglow!90!white}{\tiny\href{http://dx.doi.org/#1}{DOI:#1}}}}
+% emph
+\renewcommand{\emph}[1]{\textcolor{white}{\textit{#1}}}
+% alert
+%\renewcommand{\alert}[1]{\textcolor{bolognafcsunglow!90!white}{#1}}
+\newcommand{\aalert}[1]{\textcolor{bolognafcsunglow!90!white}{\it#1}}
+% speaker
+\newcommand{\speaker}[1]{\textcolor{bolognafcwhite}{#1}}
+\newcommand{\sspeaker}[1]{\textcolor{bolognafcwhite}{\it#1}}
+%
+\usepackage[T1]{fontenc}
+%
+\mode
+<all>
