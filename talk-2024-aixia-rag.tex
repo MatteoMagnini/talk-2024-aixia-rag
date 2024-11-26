@@ -8,6 +8,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[labelformat=empty]{caption}
 %
 \usepackage{talk-2024-aixia-rag}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,91 +104,80 @@
 %\\\\\\\\\\\\\\\\\\\\\
 \begin{frame}[c]{Context}
     
-    Provide some context (max 4-5 items):
+    Chronic Disease Management Challenges
     %
     \vfill
     %
     \begin{itemize}
-        \item fact 1
         %
-        \begin{itemize}
-            \item note
-        \end{itemize}
-        
-        \vfill
-        
-        \item[$\Rightarrow$] fact 2 implied by fact 1
+        \item Managing chronic diseases is \alert{costly} and \alert{time-intensive}
         %
-        \begin{itemize}
-            \item[!] important \alert{notice}
-        \end{itemize}
-        
-        \vfill
-        
-        \item fact 3
-        %
-        \begin{itemize}
-            \item note
-        \end{itemize}
-        
-        \vfill
-        
-        \item fact 4
-        
     \end{itemize}
+    \vfill
+    \centering
+    \includegraphics[width=.6\textwidth]{figures/public-health-expenditure-share-gdp}
+    \vfill
+
 \end{frame}
 %\\\\\\\\\\\\\\\\\\\\\
 
 %\\\\\\\\\\\\\\\\\\\\\
 \begin{frame}[c]{Motivation}
-    Enumerate motivations for this work:
+    Why a Medical Chatbot for Hypertension?
     %
     \vfill
     %
     \begin{itemize}
-        \item motivation 1
+        %
+        \item Hypertension management requires ongoing support
         %
         \begin{itemize}
-            \item[e.g.] example
+            \item \alert{monitoring}
+            %
+            \item \alert{guidance}
+            %
+            \item education
         \end{itemize}
-        
-        \vfill
-        
-        \item motivation 2
         %
-        \begin{itemize}
-            \item note
-        \end{itemize}
-        
-        \vfill
-        
-        \item motivation 3 with citations \ccite{crawford2016artificial,RibeiroSG16,wexler2017computer}
-        
-        \vfill
-        
-        \item etc
-        
+        \item Reduce healthcare barriers while maintaining \alert{accuracy} and \alert{privacy}
+        %
+        \item Open-source LLMs overcome privacy concerns but need enhanced accuracy
+        %
     \end{itemize}
+    \vfill
 \end{frame}
 %\\\\\\\\\\\\\\\\\\\\\
 
 %\\\\\\\\\\\\\\\\\\\\\
-\begin{frame}{Some state of the art (optional)}
+\begin{frame}{Contribution}
 
-    Provide relevant information about the state of the art / related works here, possibly with references
+    \begin{block}{Explicitly state the contributions of the paper}
+        \begin{itemize}
+            %
+            \item Developed a chatbot for hypertensive patients using \alert{open LLMs}
+            %
+            \item Incorporated \alert{RAG} for enhanced performance
+            %
+            \item \alert{Evaluated} several open-source LLMs with and without RAG
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{figure}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{figures/telegram-bot}
+            \caption{Try me!}
+        \end{minipage}
+        \hspace{0.2cm}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.6\textwidth]{figures/github-repo}
+            \caption{Check the code!}
+        \end{minipage}
+        \hfill
+        \label{fig:telegram-bot}
+    \end{figure}
 
-\end{frame}
-%\\\\\\\\\\\\\\\\\\\\\
-
-%\\\\\\\\\\\\\\\\\\\\\
-\begin{frame}{Contribution of the paper}
-
-\begin{block}{Explicitly state the contributions of the paper}
-    \begin{itemize}
-        \item contribution 1
-        \item contribution 2
-    \end{itemize}
-\end{block}
 
 \end{frame}
 %\\\\\\\\\\\\\\\\\\\\\
@@ -197,14 +187,40 @@
 %===============================================================================
 
 %\\\\\\\\\\\\\\\\\\\\\
-\begin{frame}%[allowframebreaks]
-\frametitle{Theory / modelling / design}
+\begin{frame}{Theory}
 
-    Provide 2-3 slides discussing the Theory / modelling / design
-
+    \begin{block}{The RAG system}
+        \vfill
+        %
+        \begin{itemize}
+            %
+            \item Key components
+            %
+            \begin{itemize}
+                \item \alert{Retriever} $\rightarrow$ finds relevant information
+                %
+                \item \alert{Generator} $\rightarrow$ generates responses based on retrieved information
+                %
+            \end{itemize}
+            %
+            \item Different retrieval strategies
+            %
+            \begin{itemize}
+                \item Base $\rightarrow$ vector similarity with the query
+                %
+                \item Ensemble $\rightarrow$ multiple retrievers
+                %
+                \item MultiQuery $\rightarrow$ multiple queries
+            \end{itemize}
+            %
+        \end{itemize}
+        \vfill
+    \end{block}
 \end{frame}
 %\\\\\\\\\\\\\\\\\\\\\
 
+
+%===============================================================================
 \section{Case study / Experiments / Results}
 
 %\\\\\\\\\\\\\\\\\\\\\
