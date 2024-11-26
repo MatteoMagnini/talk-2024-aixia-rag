@@ -9,6 +9,10 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[labelformat=empty]{caption}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage[most]{tcolorbox}
 %
 \usepackage{talk-2024-aixia-rag}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,7 +145,10 @@
         %
         \item Reduce healthcare barriers while maintaining \alert{accuracy} and \alert{privacy}
         %
-        \item Open-source LLMs overcome privacy concerns but need enhanced accuracy
+        \item Open-source \alert{Large Language Models (LLMs)} overcome privacy concerns but need enhanced accuracy and domain-specific knowledge
+        \begin{itemize}
+            \item[$\rightarrow$] quest for diminishing \alert{hallucinations}!
+        \end{itemize}
         %
     \end{itemize}
     \vfill
@@ -151,12 +158,12 @@
 %\\\\\\\\\\\\\\\\\\\\\
 \begin{frame}{Contribution}
 
-    \begin{block}{Explicitly state the contributions of the paper}
+    \begin{block}{Main contributions of our work}
         \begin{itemize}
             %
-            \item Developed a chatbot for hypertensive patients using \alert{open LLMs}
+            \item Improved our chatbot for hypertensive patients using \alert{open LLMs}
             %
-            \item Incorporated \alert{RAG} for enhanced performance
+            \item Incorporated \alert{Retrieval-Augmented Generation (RAG)} for enhanced performance
             %
             \item \alert{Evaluated} several open-source LLMs with and without RAG
         \end{itemize}
@@ -183,12 +190,13 @@
 %\\\\\\\\\\\\\\\\\\\\\
 
 %===============================================================================
-\section{Theory / modelling / design}
+\section{Theory, Experiments \& Results}
 %===============================================================================
 
 %\\\\\\\\\\\\\\\\\\\\\
-\begin{frame}{Theory}
-
+\begin{frame}[allowframebreaks]
+\frametitle{Theory}
+    %
     \begin{block}{The RAG system}
         \vfill
         %
@@ -203,6 +211,22 @@
                 %
             \end{itemize}
             %
+        \end{itemize}
+    \end{block}
+    \vfill
+    \centering
+    \includegraphics[width=.6\textwidth]{figures/rag-architecture}
+    \vfill
+
+    \framebreak
+
+    \begin{block}{The RAG system}
+        \begin{itemize}
+            \item Data source $\rightarrow$ a collection of documents stored in a vector space
+            \begin{itemize}
+                \item[$\rightarrow$] in our case a collection of questions and answers verified by real doctors
+            \end{itemize}
+            %
             \item Different retrieval strategies
             %
             \begin{itemize}
@@ -212,13 +236,90 @@
                 %
                 \item MultiQuery $\rightarrow$ multiple queries
             \end{itemize}
-            %
         \end{itemize}
-        \vfill
+    \end{block}
+    %
+    \begin{block}{Why RAG and not finetuning?}
+        \begin{itemize}
+            \item Improve our previous work on the hypertension chatbot~\ccite{telmed2024}
+            \begin{itemize}
+                \item[$\rightarrow$] multiple users, need to \alert{adapt} to different contexts
+            \end{itemize}
+            %
+            \item Fine-tuning LLMs is expensive and time-consuming
+            %
+            \item Avoid model \alert{drift}, \alert{hallucinations}, and other issues
+        \end{itemize}
     \end{block}
 \end{frame}
 %\\\\\\\\\\\\\\\\\\\\\
 
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}[allowframebreaks]
+\frametitle{Experiments}
+
+    \begin{block}{Experimental setup}
+        \begin{itemize}
+            \item Datasets $\rightarrow$ \alert{1,473} question-answer pairs extracted from medical consultations
+            \begin{itemize}
+                \item[$\rightarrow$] questions cover a wide range of topics related to hypertension, including \alert{symptoms}, \alert{causes}, \alert{treatments}, and \alert{lifestyle recommendations}
+            \end{itemize}
+            %
+            \item Models $\rightarrow$ both of general-purpose models and medical-domain-specific models
+            %
+            \item Metrics $\rightarrow$ We used three metrics to evaluate the performance of the models:
+            \begin{itemize}
+                \item[$\rightarrow$] Answer relevancy $\rightarrow$ assessing the \alert{relevance} of the answer to the question
+                \item[$\rightarrow$] Answer correctness $\rightarrow$ evaluating the \alert{correctness} of the answer
+                \item[$\rightarrow$] Faithfulness $\rightarrow$ measuring the \alert{alignment} between the answer and the retrieved information
+            \end{itemize}
+            %
+        \end{itemize}
+    \end{block}
+
+    \framebreak
+
+    \vfill
+    \tiny{
+        \footnotesize{
+            \begin{table}[htbp]
+                \centering
+                %\caption{Evaluated LLMs for our study.}
+                \label{tab:evaluated-llms}
+                \begin{tabular}{|l|p{0.6\textwidth}|}
+                    \hline
+                    \textbf{Model} & \textbf{Description} \\
+                    \hline
+                    Llama3.1 & A general-purpose LLM based on the Llama3 architecture with 8B parameters, trained on a diverse range of text data~\ccite{llama3}. \\
+                    \hline
+                    Llama3.1-Medical & A medical-domain-specific version of Llama3.1, fine-tuned on medical data to enhance its performance in healthcare. \\
+                    \hline
+                    Qwen2 & A 7B parameters general-purpose LLM, trained on 29 languages to improve cross-lingual performance~\ccite{qwen2}. \\
+                    \hline
+                    Qwen2-Medical & A medical-domain-specific version of Qwen2, fine-tuned on medical data to improve its performance in healthcare tasks. \\
+                    \hline
+                    Mistral-Nemo & A 12B parameter model with a large context window (128K tokens) developed by Nvidia. \\
+                    \hline
+                    Phi3 & A small LLM with 3B parameters, trained by Microsoft on filtered high-quality data~\ccite{abdin2024phi3technicalreporthighly}. \\
+                    \hline
+                    Gemma2 & A 9B parameter model based on Deepmind Gemini developed by Google~\ccite{gemmateam2024gemma2improvingopen}. \\
+                    \hline
+                \end{tabular}
+            \end{table}
+        }
+    }
+    \vfill
+
+\end{frame}
+%\\\\\\\\\\\\\\\\\\\\\
+
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}[allowframebreaks]
+    \frametitle{Results}
+
+
+
+\end{frame}
 
 %===============================================================================
 \section{Case study / Experiments / Results}
