@@ -115,6 +115,7 @@
     \begin{itemize}
         %
         \item Managing chronic diseases is \alert{costly} and \alert{time-intensive}
+        \item Engagement of patient is crucial for success
         %
     \end{itemize}
     \vfill
@@ -127,9 +128,9 @@
 
 %\\\\\\\\\\\\\\\\\\\\\
 \begin{frame}[c]{Motivation}
-    Why a Medical Chatbot for Hypertension?
+    Why a Medical Chatbot for Hypertension?~\ccite{telmed2024}
     %
-    \vfill
+    \vspace{1em}
     %
     \begin{itemize}
         %
@@ -140,42 +141,54 @@
             %
             \item \alert{guidance}
             %
-            \item education
         \end{itemize}
         %
-        \item Reduce healthcare barriers while maintaining \alert{accuracy} and \alert{privacy}
+        \item A personal digital assistant may reduce physicians workload and provide continuous \\ support to patients
         %
-        \item Open-source \alert{Large Language Models (LLMs)} overcome privacy concerns but need enhanced accuracy and domain-specific knowledge
-        \begin{itemize}
-            \item[$\rightarrow$] quest for diminishing \alert{hallucinations}!
         \end{itemize}
-        %
-    \end{itemize}
+        
+ \vspace{-2.5em}
+    \raggedleft
+    \includegraphics[width=.65\textwidth]{figures/chatbot}
     \vfill
+
 \end{frame}
 %\\\\\\\\\\\\\\\\\\\\\
 
 %\\\\\\\\\\\\\\\\\\\\\
 \begin{frame}{Contribution}
 
+ \begin{block}{Requirements}
+ 	\begin{itemize}
+ 	%
+        \item Need for high \alert{accuracy} and strong \alert{privacy} protection
+        %
+        \end{itemize}
+\end{block}
+
     \begin{block}{Main contributions of our work}
         \begin{itemize}
             %
             \item Improved our chatbot for hypertensive patients using \alert{open LLMs}
             %
+            \begin{itemize}
+            \item they  overcome privacy concerns but need enhanced accuracy and domain-specific knowledge
+        		$\rightarrow$ quest for diminishing \alert{hallucinations}!
+       		
+	\end{itemize}
             \item Incorporated \alert{Retrieval-Augmented Generation (RAG)}~\ccite{Lewis-NIPS20} for enhanced performance
             %
             \item \alert{Evaluated} several open-source LLMs with and without RAG
         \end{itemize}
     \end{block}
-    \vfill
+    \vspace{-0.5em}
     \begin{figure}
         \begin{minipage}{0.3\textwidth}
             \centering
             \includegraphics[width=0.6\textwidth]{figures/telegram-bot}
             \caption{Try me!}
         \end{minipage}
-        \hspace{0.2cm}
+        \hspace{2cm}
         \begin{minipage}{0.3\textwidth}
             \centering
             \includegraphics[width=0.6\textwidth]{figures/github-repo}
@@ -241,10 +254,7 @@
     %
     \begin{block}{Why RAG and not finetuning?}
         \begin{itemize}
-            \item Improve our previous work on the hypertension chatbot~\ccite{telmed2024}
-            \begin{itemize}
-                \item[$\rightarrow$] multiple users, need to \alert{adapt} to different contexts
-            \end{itemize}
+            \item Multiple users, need to \alert{adapt} to different contexts
             %
             \item Fine-tuning LLMs is expensive and time-consuming
             %
@@ -255,31 +265,31 @@
 %\\\\\\\\\\\\\\\\\\\\\
 
 %\\\\\\\\\\\\\\\\\\\\\
-\begin{frame}[allowframebreaks]
-\frametitle{Experiments}
+\begin{frame}{Experiments}
 
     \begin{block}{Experimental setup}
-        \begin{itemize}
-            \item Datasets $\rightarrow$ \alert{1,473} question-answer pairs extracted from medical consultations
+        \begin{description}[left=0pt]
+            \item[Dataset]  \alert{1,473} question-answer pairs extracted from medical consultations
             \begin{itemize}
-                \item[$\rightarrow$] questions cover a wide range of topics related to hypertension, including \alert{symptoms}, \alert{causes}, \alert{treatments}, and \alert{lifestyle recommendations}
+                \item[$\rightarrow$] questions cover a wide range of topics ---\alert{symptoms}, \alert{causes}, \alert{treatments}, and \alert{lifestyle recommendations}
             \end{itemize}
             %
-            \item Models $\rightarrow$ both of general-purpose models and medical-domain-specific models
+            \item[Models]  both general-purpose models and medical-domain-specific models
             %
-            \item Metrics $\rightarrow$ We used three metrics to evaluate the performance of the models:
+            \item[Metrics] We used three metrics to evaluate the performance of the models:
             \begin{itemize}
-                \item[$\rightarrow$] Answer relevancy $\rightarrow$ assessing the \alert{relevance} of the answer to the question
-                \item[$\rightarrow$] Answer correctness $\rightarrow$ evaluating the \alert{correctness} of the answer
-                \item[$\rightarrow$] Faithfulness $\rightarrow$ measuring the \alert{alignment} between the answer and the retrieved information
+                \item[$\rightarrow$] \textbf{Answer relevancy}: assess the \alert{relevance} of the answer to the question
+                \item[$\rightarrow$] \textbf{Answer correctness}: evaluate the \alert{correctness} of the answer
+                \item[$\rightarrow$] \textbf{Faithfulness}: measure the \alert{alignment} between the answer and the retrieved information
             \end{itemize}
             %
-        \end{itemize}
+        \end{description}
     \end{block}
 
-    \framebreak
+\end{frame}
 
-    \vfill
+%\\\\\\\\\\\\\\\\\\\\\
+\begin{frame}{Models}
     \tiny{
         \footnotesize{
             \begin{table}[htbp]
@@ -319,14 +329,24 @@
 
     \begin{block}{RAG vs. No-RAG}
         \begin{itemize}
-            \item RAG models outperformed No-RAG models in terms of \alert{correctness} and \alert{relevancy}
+            \item RAG models outperformed No-RAG models in terms of \alert{correctness} (\alert{up to 20\%} ) and \alert{relevancy} (\alert{up to 40\%})
             %
             \item This strongly suggests that integrating external knowledge sources via RAG \alert{significantly improves} the quality of generated responses
-            %
-            \item The performance boost (\alert{up to 20\%} in answer correctness and \alert{40\%} in answer relevancy in some cases) provided by RAG proved particularly relevant for models trained on medical data, showcasing the effectiveness of this approach in domain-specific tasks.
+            
         \end{itemize}
     \end{block}
+     $\rightarrow$ the RAG approach demonstrates to be effective in domain-specific tasks, such as the medical one but\ldots
+     
+    \begin{block}{RAG strategies}
+        \begin{itemize}
+          %
+            \item The choice of retrieval strategy significantly influenced the performance of the RAG systems
+            %
+         \end{itemize}
+    \end{block}
 
+
+    
     \framebreak
 
     \vfill
@@ -338,20 +358,6 @@
     \vfill
     \centering
     \includegraphics[width=\textwidth]{figures/RAGvsNoRAG_relevancy}
-
-    \framebreak
-
-    \begin{block}{RAG strategies}
-        \begin{itemize}
-            \item The choice of retrieval strategy significantly influenced the performance of the RAG systems
-            %
-            \item Base Retriever excelled in answer correctness, relevance, and faithfulness, showcasing a \alert{good balance} across all metrics
-            %
-            \item Ensemble Retriever demonstrated \alert{superior answer relevance} but lagged in answer correctness and faithfulness
-            %
-            \item MultiQuery Retriever showed \alert{promise in answer relevance and faithfulness} but suffered in answer correctness
-        \end{itemize}
-    \end{block}
 
     \framebreak
 
